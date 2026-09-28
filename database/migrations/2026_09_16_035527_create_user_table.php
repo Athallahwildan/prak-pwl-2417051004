@@ -15,8 +15,9 @@ return new class extends Migration
             $table->id();
             $table->string('nama');
             $table->string('npm');
-            $table->string('kelas_id')->constrained();
+            $table->unsignedBigInteger('kelas_id');
             $table->timestamps();
+            $table->foreign('kelas_id')->references('id')->on('kelas');
         });
     }
 
